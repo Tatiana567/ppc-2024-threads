@@ -33,7 +33,7 @@ bool BenduyzhkoOMP::run() {
   }
 
   for (int k = p; k >= 1; k >>= 1) {
-#pragma omp parallel for schedule(static)
+#pragma omp parallel for
     for (int j = k % p; j < n - k; j += 2 * k) {
       for (int i = 0; i < std::min(k - 1, n - j - k - 1) + 1; ++i) {
         if ((i + j) / n == (i + j + k) / n) {
